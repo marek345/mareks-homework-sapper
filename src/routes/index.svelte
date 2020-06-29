@@ -21,13 +21,10 @@ console.log(process.env.static)
 
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Marek's homework</title>
 </svelte:head>
 
 <h1>Jokes about career</h1>
 
-{#if process.env.static}
-{datas.value}
-{:else}
+
 <Joke category="career" />
-{/if}

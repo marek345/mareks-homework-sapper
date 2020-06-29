@@ -20,14 +20,11 @@ console.log(process.env.static)
 </script>
 
 <svelte:head>
-	<title>Random static jokes</title>
+	<title>Marek's homework</title>
 </svelte:head>
 
 <h1>Jokes about science</h1>
 
 
-{#if process.env.static}
+
 {datas.value}
-{:else}
-<Joke category="science" />
-{/if}

@@ -19,14 +19,11 @@ console.log(process.env.static)
 
 
 <svelte:head>
-	<title>Chuck Norris Jokes</title>
+	<title>Marek's homework</title>
 </svelte:head>
 
 <h1>Jokes about fashion</h1>
 
 
-{#if process.env.static}
+
 {datas.value}
-{:else}
-<Joke category="career" />
-{/if}
