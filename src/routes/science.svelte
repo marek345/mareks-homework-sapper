@@ -13,6 +13,7 @@
 <script>
 import Joke from '../components/Joke.svelte';
 export let datas;
+
 </script>
 
 <svelte:head>
@@ -22,11 +23,8 @@ export let datas;
 <h1>About this site</h1>
 
 
-
+{#if process.env.static}
 {datas.value}
-
-
-
-{#if !process.env.static}
-<Joke category="fashion"/>
+{#else}
+<Joke category="science" />
 {/if}
