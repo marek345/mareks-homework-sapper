@@ -1,20 +1,20 @@
 <script context="module">
-  export async function preload() {
+//  export async function preload() {
 
 
-		const res = await this.fetch(`https://api.chucknorris.io/jokes/random`);
-		const article = await res.json();
+//		const res = await this.fetch(`https://api.chucknorris.io/jokes/random`);
+//		const article = await res.json();
 
-		return { datas: article };
-	}
+//		return { datas: article };
+//	}
 </script>
 
 <script>
 import Joke from '../components/Joke.svelte';
-export let datas;
+//export let datas;
 //const envStatic = false;
 //const envStatic = process.env.static;
-console.log(process.env.static)
+//console.log(process.env.static)
 </script>
 
 
@@ -25,6 +25,5 @@ console.log(process.env.static)
 </svelte:head>
 
 <h1>Jokes about career</h1>
-
 
 <Joke category="career" />

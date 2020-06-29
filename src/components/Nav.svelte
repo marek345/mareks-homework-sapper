@@ -50,7 +50,7 @@
 
 <nav>
 	<ul>
-		<li><a rel=prefetch aria-current="{segment === undefined ? 'page' : undefined}" href=".">career</a></li>
+		<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">career</a></li>
 		<li><a rel=prefetch aria-current="{segment === 'science' ? 'page' : undefined}" href="science">science</a></li>
 		<li><a aria-current="{segment === 'fashion' ? 'page' : undefined}" href="fashion">fashion</a></li>
 	</ul>

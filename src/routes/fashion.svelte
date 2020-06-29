@@ -14,7 +14,7 @@ import Joke from '../components/Joke.svelte';
 export let datas;
 //const envStatic = true;
 //const envStatic = process.env.static;
-console.log(process.env.static)
+//console.log(process.env.static)
 </script>
 
 

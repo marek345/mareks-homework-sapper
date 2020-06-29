@@ -11,12 +11,12 @@
 
 
 <script>
-import Joke from '../components/Joke.svelte';
+//import Joke from '../components/Joke.svelte';
 export let datas;
 //const envStatic = false;
 
 //const envStatic = process.env.static;
-console.log(process.env.static)
+//console.log(process.env.static)
 </script>
 
 <svelte:head>
