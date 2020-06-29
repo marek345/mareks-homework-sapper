@@ -1,20 +1,20 @@
 <script context="module">
-//  export async function preload() {
+  export async function preload() {
 
 
-//		const res = await this.fetch(`https://api.chucknorris.io/jokes/random`);
-//		const article = await res.json();
+		const res = await this.fetch(`https://api.chucknorris.io/jokes/random`);
+		const article = await res.json();
 
-//		return { datas: article };
-//	}
+		return { datas: article };
+	}
 </script>
 
 <script>
 import Joke from '../components/Joke.svelte';
-//export let datas;
-//const envStatic = false;
-//const envStatic = process.env.static;
-//console.log(process.env.static)
+export let datas;
+
+
+
 </script>
 
 
@@ -26,12 +26,12 @@ import Joke from '../components/Joke.svelte';
 
 <h1>Jokes about career</h1>
 
-<Joke category="career" />
 
-{process.env.SAPPER_APP_STATIC}
+
+
 
 {#if process.env.SAPPER_APP_STATIC === "static"}
-<p>result is true</p>
+{datas.value}
 {:else}
-<p>result is false</p>
+<Joke category="career" />
 {/if}

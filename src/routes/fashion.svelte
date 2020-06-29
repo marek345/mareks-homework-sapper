@@ -12,9 +12,7 @@
 <script>
 import Joke from '../components/Joke.svelte';
 export let datas;
-//const envStatic = true;
-//const envStatic = process.env.static;
-//console.log(process.env.static)
+const staticRend = "dynamic";
 </script>
 
 
@@ -25,5 +23,8 @@ export let datas;
 <h1>Jokes about fashion</h1>
 
 
-
+{#if staticRend === "static"}
 {datas.value}
+{:else}
+<Joke category="fashion" />
+{/if}
