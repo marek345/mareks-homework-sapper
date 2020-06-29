@@ -13,6 +13,8 @@
 <script>
 import Joke from '../components/Joke.svelte';
 export let datas;
+//const envStatic = false;
+const envStatic = process.env.static;
 
 </script>
 
@@ -23,8 +25,8 @@ export let datas;
 <h1>About this site</h1>
 
 
-{#if process.env.static}
+{#if envStatic}
 {datas.value}
-{#else}
+{:else}
 <Joke category="science" />
 {/if}
