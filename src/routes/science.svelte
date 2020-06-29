@@ -1,19 +1,19 @@
 <script context="module">
-  export async function preload() {
+//  export async function preload() {
 
 
-		const res = await this.fetch(`https://api.chucknorris.io/jokes/random`);
-		const article = await res.json();
+//		const res = await this.fetch(`https://api.chucknorris.io/jokes/random`);
+//		const article = await res.json();
 
-		return { datas: article };
-	}
+//		return { datas: article };
+//	}
 </script>
 
 
 <script>
 import Joke from '../components/Joke.svelte';
-export let datas;
-const staticRend = "static";
+//export let datas;
+//const staticRend = "static";
 </script>
 
 <svelte:head>
@@ -24,8 +24,5 @@ const staticRend = "static";
 
 
 
-{#if staticRend === "static"}
-{datas.value}
-{:else}
+
 <Joke category="science" />
-{/if}
