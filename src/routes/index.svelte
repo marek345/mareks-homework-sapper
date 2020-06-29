@@ -27,3 +27,9 @@ import Joke from '../components/Joke.svelte';
 <h1>Jokes about career</h1>
 
 <Joke category="career" />
+
+{#if process.env.staticRender}
+	<p>server side rendering</p>
+{:else}
+  <p>client rendering</p>
+{/if}
