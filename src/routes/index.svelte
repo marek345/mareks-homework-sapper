@@ -1,41 +1,33 @@
-<style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
-	}
+<script context="module">
+  export async function preload() {
 
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
 
-	figure {
-		margin: 0 0 1em 0;
-	}
+		const res = await this.fetch(`https://api.chucknorris.io/jokes/random`);
+		const article = await res.json();
 
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
+		return { datas: article };
 	}
+</script>
 
-	p {
-		margin: 1em auto;
-	}
+<script>
+import Joke from '../components/Joke.svelte';
+export let datas;
+//const envStatic = false;
+const envStatic = process.env.static;
+console.log(envStatic)
+</script>
 
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-	}
-</style>
+
+
 
 <svelte:head>
 	<title>Sapper project template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<h1>Jokes about career</h1>
 
-<p><strong>Give marek his dream job!</strong></p>
+{#if envStatic}
+{datas.value}
+{:else}
+<Joke category="career" />
+{/if}

@@ -14,15 +14,16 @@
 import Joke from '../components/Joke.svelte';
 export let datas;
 //const envStatic = false;
-const envStatic = process.env.static;
 
+const envStatic = process.env.static;
+console.log(envStatic)
 </script>
 
 <svelte:head>
 	<title>Random static jokes</title>
 </svelte:head>
 
-<h1>About this site</h1>
+<h1>Jokes about science</h1>
 
 
 {#if envStatic}
