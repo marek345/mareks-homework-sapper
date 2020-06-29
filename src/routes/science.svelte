@@ -1,20 +1,39 @@
 <script context="module">
-//  export async function preload() {
+  export async function preload() {
+    if(process.env.SAPPER_APP_STATIC === "static"){
 
+	     const res = await this.fetch(`https://api.chucknorris.io/jokes/random?category=science`);
+	      const article = await res.json();
 
-//		const res = await this.fetch(`https://api.chucknorris.io/jokes/random`);
-//		const article = await res.json();
-
-//		return { datas: article };
-//	}
+	       return { datas: article };
+      }
+      
+	}
 </script>
-
 
 <script>
-import Joke from '../components/Joke.svelte';
-//export let datas;
-//const staticRend = "static";
+
+export let datas;
+
+import { onMount } from "svelte";
+const apiURL = "https://api.chucknorris.io/jokes/random?category=science";
+let data = [];
+
+
+onMount(async function() {
+    if(process.env.SAPPER_APP_STATIC === "static")
+    {}
+    else {const response = await fetch(apiURL);
+    data = await response.json();
+    }
+
+});
+
+
 </script>
+
+
+
 
 <svelte:head>
 	<title>Marek's homework</title>
@@ -23,6 +42,8 @@ import Joke from '../components/Joke.svelte';
 <h1>Jokes about science</h1>
 
 
-
-
-<Joke category="science" />
+{#if process.env.SAPPER_APP_STATIC === "static"}
+{datas.value}
+{:else}
+<p>{data.value}</p>
+{/if}

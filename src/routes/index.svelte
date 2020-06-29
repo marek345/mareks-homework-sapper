@@ -7,7 +7,7 @@
 
 	       return { datas: article };
       }
-      
+
 	}
 </script>
 

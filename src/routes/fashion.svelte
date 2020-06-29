@@ -1,27 +1,30 @@
 <script context="module">
   export async function preload() {
+    if(process.env.SAPPER_APP_STATIC === "static"){
 
+	     const res = await this.fetch(`https://api.chucknorris.io/jokes/random?category=fashion`);
+	      const article = await res.json();
 
-		const res = await this.fetch(`https://api.chucknorris.io/jokes/random?category=fashion`);
-		const article = await res.json();
+	       return { datas: article };
+      }
 
-		return { datas: article };
 	}
 </script>
 
 <script>
-//import Joke from '../components/Joke.svelte';
+
 export let datas;
-//const staticRend = "dynamic";
-</script>
+
+import { onMount } from "svelte";
+const apiURL = "https://api.chucknorris.io/jokes/random?category=fashion";
+let data = [];
 
 
-<svelte:head>
-	<title>Marek's homework</title>
-</svelte:head>
+onMount(async function() {
+    if(process.env.SAPPER_APP_STATIC === "static")
+    {}
+    else {const response = await fetch(apiURL);
+    data = await response.json();
+    }
 
-<h1>Jokes about fashion</h1>
-
-
-
-{datas.value}
+});
