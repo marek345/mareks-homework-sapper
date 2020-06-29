@@ -7,7 +7,7 @@
 
 	       return { datas: article };
       }
-      
+
 	}
 </script>
 
@@ -20,12 +20,12 @@ const apiURL = "https://api.chucknorris.io/jokes/random?category=science";
 let data = [];
 
 
-onMount(async function() {
-    if(process.env.SAPPER_APP_STATIC === "static")
-    {}
-    else {const response = await fetch(apiURL);
-    data = await response.json();
-    }
+
+  onMount(async function() {
+      if(process.env.SAPPER_APP_STATIC === "dynamic")
+      {const response = await fetch(apiURL);
+      data = await response.json();
+      }
 
 });
 

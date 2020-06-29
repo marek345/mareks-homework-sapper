@@ -21,9 +21,8 @@ let data = [];
 
 
 onMount(async function() {
-    if(process.env.SAPPER_APP_STATIC === "static")
-    {}
-    else {const response = await fetch(apiURL);
+    if(process.env.SAPPER_APP_STATIC === "dynamic")
+    {const response = await fetch(apiURL);
     data = await response.json();
     }
 
