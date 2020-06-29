@@ -11,6 +11,7 @@
 
 
 <script>
+import Joke from '../components/Joke.svelte';
 export let datas;
 </script>
 
@@ -24,4 +25,8 @@ export let datas;
 
 {datas.value}
 
-{process.env.static}
+
+
+{#if !process.env.static}
+<Joke category="fashion"/>
+{/if}
