@@ -28,3 +28,22 @@ onMount(async function() {
     }
 
 });
+
+
+</script>
+
+
+
+
+<svelte:head>
+	<title>Marek's homework</title>
+</svelte:head>
+
+<h1>Jokes about fashion</h1>
+
+
+{#if process.env.SAPPER_APP_STATIC === "static"}
+{datas.value}
+{:else}
+<p>{data.value}</p>
+{/if}
