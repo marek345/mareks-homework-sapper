@@ -28,8 +28,10 @@ import Joke from '../components/Joke.svelte';
 
 <Joke category="career" />
 
-{#if process.env.staticRender}
-	<p>server side rendering</p>
+{process.env.SAPPER_APP_STATIC}
+
+{#if process.env.SAPPER_APP_STATIC === "static"}
+<p>result is true</p>
 {:else}
-  <p>client rendering</p>
+<p>result is false</p>
 {/if}
