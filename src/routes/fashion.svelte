@@ -2,7 +2,7 @@
   export async function preload() {
 
 
-		const res = await this.fetch(`https://api.chucknorris.io/jokes/random`);
+		const res = await this.fetch(`https://api.chucknorris.io/jokes/random?category=fashion`);
 		const article = await res.json();
 
 		return { datas: article };
@@ -10,9 +10,9 @@
 </script>
 
 <script>
-import Joke from '../components/Joke.svelte';
+//import Joke from '../components/Joke.svelte';
 export let datas;
-const staticRend = "dynamic";
+//const staticRend = "dynamic";
 </script>
 
 
@@ -23,8 +23,5 @@ const staticRend = "dynamic";
 <h1>Jokes about fashion</h1>
 
 
-{#if staticRend === "static"}
+
 {datas.value}
-{:else}
-<Joke category="fashion" />
-{/if}
