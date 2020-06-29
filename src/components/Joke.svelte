@@ -4,6 +4,7 @@
     const apiURL = "https://api.chucknorris.io/jokes/random?category="+category;
     let data = [];
 
+
     onMount(async function() {
         const response = await fetch(apiURL);
         data = await response.json();

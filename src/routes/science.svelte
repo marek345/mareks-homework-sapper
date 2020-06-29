@@ -1,13 +1,27 @@
-<script>
-import Joke from '../components/Joke.svelte';
+<script context="module">
+  export async function preload() {
+
+
+		const res = await this.fetch(`https://api.chucknorris.io/jokes/random`);
+		const article = await res.json();
+
+		return { datas: article };
+	}
 </script>
 
 
+<script>
+export let datas;
+</script>
+
 <svelte:head>
-	<title>Chuck Norris Jokes</title>
+	<title>Random static jokes</title>
 </svelte:head>
 
-<h1>Jokes about science</h1>
+<h1>About this site</h1>
 
 
-<Joke category="science"/>
+
+{datas.value}
+
+{process.env.static}
