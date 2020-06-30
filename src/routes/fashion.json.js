@@ -1,8 +1,7 @@
 import fetch from 'node-fetch'
 
-
 export async function get(req, res) {
-    const posts = await fetch('https://api.chucknorris.io/jokes/random?category=career')
+    const posts = await fetch('https://api.chucknorris.io/jokes/random?category=fashion')
 
     const contents = await posts.text()
 

@@ -1,43 +1,32 @@
 <script context="module">
-//  export async function preload() {
-//    if(process.env.SAPPER_APP_STATIC === "static"){
-//	     const res = await this.fetch(`career.json`);
-//	      const article = await res.json();
 
-//	       return { datas: article };
-//      }
-//	}
 export async function preload({ params, query }) {
-    return this.fetch(`career.json`).then(r => r.json()).then(posts => {
+   if(process.env.SAPPER_APP_RENDERING === "static"){
+     return this.fetch(`career.json`).then(r => r.json()).then(posts => {
        return { posts };
-    });
+     });
+   }
+    if(process.env.SAPPER_APP_RENDERING === "semi-static"){
+      return this.fetch(`https://api.chucknorris.io/jokes/random?category=career`).then(r => r.json()).then(posts => {
+        return { posts };
+      });
+    }
 }
-
-
 </script>
 
 <script>
-
-//export let datas;
 export let posts;
 import { onMount } from "svelte";
-const apiURL = "https://api.chucknorris.io/jokes/random?category=career";
-let data = [];
+let dynamicPosts = [];
 
-
-//onMount(async function() {
-//    if(process.env.SAPPER_APP_STATIC === "dynamic")
-//    {const response = await fetch(apiURL);
-//    data = await response.json();
-//    }
-
-// });
-
+onMount(async function() {
+    if(process.env.SAPPER_APP_RENDERING === "dynamic")
+    {const response = await fetch(`https://api.chucknorris.io/jokes/random?category=career`);
+    dynamicPosts = await response.json();
+    }
+ });
 
 </script>
-
-
-
 
 <svelte:head>
 	<title>Marek's homework</title>
@@ -45,5 +34,10 @@ let data = [];
 
 <h1>Jokes about career</h1>
 
-
+{#if (process.env.SAPPER_APP_RENDERING === "static")}
 {posts.value}
+{:else if (process.env.SAPPER_APP_RENDERING === "semi-static")}
+{posts.value}
+{:else}
+{dynamicPosts.value}
+{/if}
