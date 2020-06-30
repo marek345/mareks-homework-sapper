@@ -22,7 +22,7 @@ export default {
 		plugins: [
 			replace({
 				...sapperEnv(),
-				'process.browser': false,
+				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
 			svelte({
@@ -93,7 +93,7 @@ export default {
 		plugins: [
 			resolve(),
 			replace({
-				'process.browser': false,
+				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
 			commonjs(),

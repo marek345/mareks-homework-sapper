@@ -1,20 +1,25 @@
 <script context="module">
-  export async function preload() {
-    if(process.env.SAPPER_APP_STATIC === "static"){
+//  export async function preload() {
+//    if(process.env.SAPPER_APP_STATIC === "static"){
+//	     const res = await this.fetch(`career.json`);
+//	      const article = await res.json();
 
-	     const res = await this.fetch(`https://api.chucknorris.io/jokes/random?category=career`);
-	      const article = await res.json();
+//	       return { datas: article };
+//      }
+//	}
+export async function preload({ params, query }) {
+    return this.fetch(`career.json`).then(r => r.json()).then(posts => {
+       return { posts };
+    });
+}
 
-	       return { datas: article };
-      }
 
-	}
 </script>
 
 <script>
 
-export let datas;
-
+//export let datas;
+export let posts;
 import { onMount } from "svelte";
 const apiURL = "https://api.chucknorris.io/jokes/random?category=career";
 let data = [];
@@ -41,8 +46,4 @@ let data = [];
 <h1>Jokes about career</h1>
 
 
-{#if process.env.SAPPER_APP_STATIC === "static"}
-{datas.value}
-{:else}
-<p>{data.value}</p>
-{/if}
+{posts.value}
