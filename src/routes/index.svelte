@@ -20,13 +20,13 @@ const apiURL = "https://api.chucknorris.io/jokes/random?category=career";
 let data = [];
 
 
-onMount(async function() {
-    if(process.env.SAPPER_APP_STATIC === "dynamic")
-    {const response = await fetch(apiURL);
-    data = await response.json();
-    }
+//onMount(async function() {
+//    if(process.env.SAPPER_APP_STATIC === "dynamic")
+//    {const response = await fetch(apiURL);
+//    data = await response.json();
+//    }
 
-});
+// });
 
 
 </script>
